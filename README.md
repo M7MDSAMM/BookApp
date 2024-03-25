@@ -24,18 +24,20 @@ Before proceeding, ensure you have the following installed on your system:
 
 Install PHP dependencies through Composer:
 
-
+```bash
 composer install
+```
 Environment Configuration
 
 Copy the example environment file and make the necessary configuration adjustments specific to your environment:
 
-
+```bash
 cp .env.example .env
+```
 Then, edit the .env file to configure your database settings:
 
 makefile
-
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -44,27 +46,29 @@ DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 Database Setup
 Create Database
-
+```
 Create a new database for your project on your database server. The name of the database should match the DB_DATABASE value set in your .env file.
 
 Run Migrations
 Migrate your database to create the schema:
-
+```bash
 php artisan migrate
-
+```
 Run Seeders
 Populate your database with initial data using seeders:
 
-
+```bash
 php artisan db:seed
-
+```
 Optionally, you can run migrations and seeders together with:
+```bash
 php artisan migrate --seed
-
+```
 Serving the Application
 Finally, serve your Laravel application using the Artisan command:
-
+```bash
 php artisan serve
+```
 This command will start a development server at http://localhost:8000.
 
 Access your application through the browser using the provided URL.
