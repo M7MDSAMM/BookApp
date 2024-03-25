@@ -18,6 +18,10 @@ class BookFactory extends Factory
     {
         return [
             //
+            'book_name' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'num_of_read_pages' => $this->faker->optional()->numberBetween(1, 500),
+            'author_name' => $this->faker->name,
         ];
     }
 }
