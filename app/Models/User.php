@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function bookReadingIntervals()
+    {
+        return $this->hasMany(BookReadingInterval::class, 'user_id', 'id');
+    }
 }
