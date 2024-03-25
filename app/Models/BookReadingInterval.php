@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookReadingInterval extends Model
 {
+    protected $fillable = ['user_id', 'start_page', 'end_page', 'book_id'];
+
+
     use HasFactory;
 
     public function user()

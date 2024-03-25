@@ -4,19 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
-use App\Services\BookReadingIntervalService;
 use App\Services\BookService;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     protected $bookService;
-    protected $bookReadingIntervalService;
 
-    public function __construct(BookService $bookService, BookReadingIntervalService $bookReadingIntervalService)
+    public function __construct(BookService $bookService)
     {
         $this->bookService = $bookService;
-        $this->bookReadingIntervalService = $bookReadingIntervalService;
     }
 
     public function mostReading()
