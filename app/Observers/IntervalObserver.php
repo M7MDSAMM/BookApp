@@ -4,19 +4,23 @@ namespace App\Observers;
 
 use App\Models\Book;
 use App\Models\BookReadingInterval;
+use App\Services\BookService;
 
 class IntervalObserver
 {
+    protected $bookService;
+    public function __construct(BookService $bookService)
+    {
+        $this->bookService = $bookService;
+    }
     /**
      * Handle the BookReadingInterval "created" event.
      */
     public function created(BookReadingInterval $bookReadingInterval): void
     {
         //
-        $newReadings = $bookReadingInterval->end_page - $bookReadingInterval->start_page;
-        $book = Book::findOrFail($bookReadingInterval->book_id);
-        $book->num_of_read_pages = $book->num_of_read_pages + $newReadings;
-        $book->save();
+        $this->bookService->update($bookReadingInterval);
+        
     }
 
     /**
